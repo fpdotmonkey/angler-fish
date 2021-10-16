@@ -1,0 +1,7 @@
+All first party art assets, namely graphic and sound assets, shall be made
+available under the terms provided in the LICENSE file that is in the root
+directory of this project.  All assets created by third parties shall be given
+attribution including name, license under which it is being used, and its
+author or source in a LICENSE file in the same directory as the asset.
+First-party assets shall be identified as those which are not given attribution
+in this manner or that are attributed with license indicated as "/LICENSE".
