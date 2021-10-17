@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class AnglerFishController : MonoBehaviour
 {
-    private Vector2 setpoint_position;
+    private Vector2 setpointPosition;
 
     [SerializeField]
     private float speed = 1.0f;
 
-    private Vector2 CalculateControlPosition(Vector2 current_position)
+    private Vector2 CalculateControlPosition(Vector2 currentPosition)
     {
-        if ((setpoint_position - current_position).magnitude < 0.01f)
+        if ((setpointPosition - currentPosition).magnitude < 0.01f)
         {
-            return current_position;
+            return currentPosition;
         }
         Vector2 control_position =
-            current_position + speed * Time.fixedDeltaTime * (setpoint_position - current_position).normalized;
+            currentPosition + speed * Time.fixedDeltaTime * (setpointPosition - currentPosition).normalized;
         return control_position;
+    }
+
+    private void Start()
+    {
+        setpointPosition = transform.position;
     }
 
     private void Update()
     {
         if (Input.GetButton("Move"))
         {
-            setpoint_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            setpointPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 

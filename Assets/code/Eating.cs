@@ -7,12 +7,12 @@ using UnityEngine;
 public class Eating : MonoBehaviour
 {
     [SerializeField]
-    private bool can_eat_player = false;
+    private bool canEatPlayer = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("fish") ||
-            (can_eat_player && other.gameObject.layer == LayerMask.NameToLayer("player")))
+            (canEatPlayer && other.gameObject.layer == LayerMask.NameToLayer("player")))
         {
             Debug.Log($"Eating fish '{other.gameObject.name} ({other.gameObject.GetInstanceID()})'");
             Destroy(other.gameObject);

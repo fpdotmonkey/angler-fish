@@ -11,13 +11,13 @@ public class LightController : MonoBehaviour
     [SerializeField]
     private float max_distance = 10.0f;
 
-    private Vector2 CalculateControlPosition(Vector2 current_position)
+    private Vector2 CalculateControlPosition(Vector2 currentPosition)
     {
         if (setpoint_direction == Vector2.zero)
-            return current_position;
-        Vector2 control_position = current_position + speed * Time.fixedDeltaTime * setpoint_direction;
+            return currentPosition;
+        Vector2 control_position = currentPosition + speed * Time.fixedDeltaTime * setpoint_direction;
         if (control_position.magnitude > max_distance)
-            return current_position;
+            return currentPosition;
         return control_position;
     }
 
